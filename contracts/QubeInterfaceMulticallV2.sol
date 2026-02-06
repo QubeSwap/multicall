@@ -3,7 +3,7 @@ pragma solidity =0.7.6;
 pragma abicoder v2;
 
 /// @notice A fork of MultiCall with gas limit
-contract PancakeInterfaceMulticallV2 {
+contract QubeInterfaceMulticallV2 {
     struct Call {
         address target;
         uint256 gasLimit;
