@@ -14,7 +14,8 @@ const config: HardhatUserConfig = {
     hardhat: {},
     localhost: { timeout: 600000 },
     seiMainnet: {
-      url: "https://evm-rpc.sei-apis.com",
+      //url: "https://evm-rpc.sei-apis.com",
+	  url: "https://sei-public.nodies.app",
       accounts: [process.env.KEY_MAINNET!]
     },
 	monadMainnet: {
@@ -30,7 +31,8 @@ const config: HardhatUserConfig = {
       accounts: [process.env.KEY_MAINNET!]
     },
 	avaxMainnet: {
-      url: "https://api.avax.network/ext/bc/C/rpc",
+      //url: "https://api.avax.network/ext/bc/C/rpc",
+	  url: "https://avalanche-c-chain-rpc.publicnode.com",
       accounts: [process.env.KEY_MAINNET!]
     },
   },	
@@ -82,42 +84,28 @@ const config: HardhatUserConfig = {
   solidity: {
     compilers: [
       {
-        version: "0.8.10",
+        version: "0.7.6",
         settings: {
           optimizer: {
             enabled: true,
-            runs: 100,
+            runs: 1_000_000,
           },
         },
       },
       {
-        version: "0.8.9",
+        version: "0.8.12",
         settings: {
           optimizer: {
             enabled: true,
-            runs: 100,
-          },
-        },
-      },
-      {
-        version: "0.8.0",
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 100,
-          },
-        },
-      },
-      {
-        version: "0.6.12",
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 100,
+            runs: 10_000_000,
           },
         },
       },
     ],
+  },
+  typechain: {
+    outDir: 'typechain',
+    target: 'ethers-v6'
   },
   paths: {
     sources: "./contracts/",
